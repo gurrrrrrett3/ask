@@ -18,9 +18,9 @@ export default function Ask(props: { username: string; prompt: string; ask: stri
 			<div class="card-footer text-muted" style="display:flex; justify-content: space-between;">
 				<div>{date}</div>
 				<a
-					href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-						`q: ${ask}\na: \n\nhttps://ask.thighhighs.gay/${username}`
-					)}`}
+					href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+						`https://ask.thighhighs.gay/${username}`
+					)}&text=${encodeURIComponent(`q: ${ask}\na: \n\n`)}`}
 				>
 					<img height="24px" width="24px" src="/_/twitter.svg" />
 				</a>
