@@ -10,11 +10,9 @@ export default async function UserPage(props: { rid: string; user?: string }) {
 	const username = Core.services.context.get(rid, "user") || props.user;
 	const session = Core.services.context.get(rid, "session") as Session;
 	const isManager = session && session.user.username == username;
-	const user = isManager
-		? session.user
-		: await Core.database.repository.user.findOne({
-				username,
-		  });
+	const user = await Core.database.repository.user.findOne({
+		username,
+	});
 
 	if (!user) {
 		return (
@@ -26,7 +24,7 @@ export default async function UserPage(props: { rid: string; user?: string }) {
 							<span safe>user not found</span>
 						</h1>
 						<p>please try another username</p>
-						<Link href="/" get="page.indexpage" class="btn btn-primar">
+						<Link href="/" get="page.index" class="btn btn-primar">
 							go home
 						</Link>
 					</div>
