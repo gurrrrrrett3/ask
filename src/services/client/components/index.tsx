@@ -11,7 +11,7 @@ export default async function Index(props: { path: string; rid: string }) {
 		<>
 			{"<!DOCTYPE html>"}
 			<html>
-				<Head />
+				<Head rid={props.rid} />
 				<body hx-ext="preload">
 					<Navbar rid={rid} />
 					<main id="main">

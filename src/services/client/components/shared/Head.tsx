@@ -1,4 +1,6 @@
-export default function Head() {
+import Meta from "./meta/meta.js";
+
+export default function Head(props: { rid: string }) {
 	return (
 		<head>
 			<link rel="stylesheet" href="/_/bootstrap.css" />
@@ -20,6 +22,7 @@ export default function Head() {
 				crossorigin="anonymous"
 			></script>
 			<link rel="icon" href="/_/icon.webp" />
+			<Meta rid={props.rid} />
 		</head>
 	);
 }
