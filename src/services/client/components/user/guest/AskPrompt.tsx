@@ -1,7 +1,7 @@
 export const askMaxLen = 100;
 
-export default function AskPrompt(props: { prompt: string; userId: string; ask?: string }) {
-	const { prompt, userId, ask } = props;
+export default function AskPrompt(props: { prompt: string; username: string; ask?: string }) {
+	const { prompt, username, ask } = props;
 	return (
 		<form
 			class={`card border-primary mb-3`}
@@ -20,14 +20,14 @@ export default function AskPrompt(props: { prompt: string; userId: string; ask?:
 					type="text"
 					id="ask"
 					name="ask"
-					hx-get={`/component/user.guest.askprompt?prompt=${prompt}`}
+					hx-get={`/component/user.guest.askprompt?prompt=${prompt}&username=${username}`}
 					hx-trigger="keyup changed delay:500ms"
 					hx-target="#guest-ask-container"
 					hx-swap="outerHTML"
 					autocomplete="false"
 					maxlength={askMaxLen}
 				/>
-				<input name="userId" value={userId} hidden />
+				<input name="username" value={username} hidden />
 				<input class="btn btn-primary" type="submit" value="Submit" />
 			</div>
 			<div class="card-footer text-success">{(ask || "").length}/100</div>

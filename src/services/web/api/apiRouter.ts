@@ -12,9 +12,9 @@ const cleanRegex = /[^ -~]/
 
 
 router.post("/ask", async (req, res) => {
-    const { ask, userId } = req.body as {
+    const { ask, username } = req.body as {
         ask: string
-        userId: string
+        username: string
     }
 
     if (!ask) {
@@ -30,7 +30,7 @@ router.post("/ask", async (req, res) => {
     const cleanAsk = ask.replace(cleanRegex, '')
 
     const user = await Core.database.repository.user.findOne({
-        id: userId
+        username
     })
 
     if (!user) {

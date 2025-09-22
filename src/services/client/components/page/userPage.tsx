@@ -46,14 +46,15 @@ export default async function UserPage(props: { rid: string; user?: string }) {
 				</div>
 
 				<div>
-					{isManager ? (
-						AskList({
-							username,
-							prompt,
-						})
-					) : (
-						<AskPrompt prompt={prompt} userId={user.id} />
-					)}
+					{isManager
+						? AskList({
+								username,
+								prompt,
+						  })
+						: AskPrompt({
+								username,
+								prompt,
+						  })}
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 import Core from "../../../../core.js";
 import Session from "../../../../database/entities/Session.entity.js";
 
-export const usernameCheckRegex = /^[a-z0-9_]{3,16}$/;
+export const usernameCheckRegex = /^[a-z0-9_\.]{3,16}$/;
 
 export default async function Username(props: { rid: string; username?: string; first?: boolean }) {
 	const { rid, username: name, first } = props;

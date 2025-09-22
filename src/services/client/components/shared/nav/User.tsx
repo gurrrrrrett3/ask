@@ -5,7 +5,6 @@ import LoginButton from "./LoginButton.js";
 
 export default function User(props: { rid: string }) {
 	const { rid } = props;
-	console.log(rid, Core.services.context.get(rid, "loggedIn"));
 	if (Core.services.context.get(rid, "loggedIn")) {
 		const session = Core.services.context.get(rid, "session") as Session;
 
