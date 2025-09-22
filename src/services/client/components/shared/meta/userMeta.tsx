@@ -19,6 +19,7 @@ export default function UserMeta(props: { rid: string }) {
 				content="https://ask.thighhighs.gay/_/banner.png"
 				hx-swap-oob="true"
 			/>
+			<meta name="twitter:card" content="summary_large_image"></meta>
 		</>
 	);
 }
