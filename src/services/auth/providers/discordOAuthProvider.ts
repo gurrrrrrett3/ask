@@ -64,6 +64,13 @@ export default class DiscordOAuthProvider extends oAuthProvider {
             // user is already logged in, merge this new account with the existing one
 
             userEntity = currentSession.user
+
+            if (!userEntity) {
+                // this shouldnt happen, log them out
+                await SessionManager.deleteSession(req.cookies.session)
+                res.redirect("/")
+            }
+
             const existingAuth = await userEntity.getAuth(AuthType.Discord)
 
             if (existingAuth) {
