@@ -5,9 +5,10 @@ import LoginButton from "./LoginButton.js";
 
 export default function User(props: { rid: string }) {
 	const { rid } = props;
-	if (Core.services.context.get(rid, "loggedIn")) {
-		const session = Core.services.context.get(rid, "session") as Session;
+	const loggedIn = Core.services.context.get(rid, "loggedIn");
+	const session = Core.services.context.get(rid, "session") as Session;
 
+	if (loggedIn && session?.user) {
 		return (
 			<>
 				<Link
